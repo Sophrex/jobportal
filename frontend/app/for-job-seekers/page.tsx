@@ -1,56 +1,57 @@
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
+import { siteImages } from "@/lib/images";
 
 export default function ForJobSeekersPage() {
   return (
     <>
       <PageHero
-        title="For Job Seekers"
-        description="Discover opportunities, apply with confidence, and grow your career with JobPortal."
-        image="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1920&q=80&auto=format&fit=crop"
-        imageAlt="Professional woman in a business setting"
+        title="Find hands-on work"
+        description="Handyman, cleaning, maid, and service gigs near you — apply fast on Travailleso."
+        image={siteImages.tools}
+        imageAlt="Worker with tools ready for a job"
       />
       <div className="mx-auto max-w-4xl px-6 py-16">
-        <div className="space-y-8">
+        <div className="space-y-4">
           {[
             {
-              title: "Search Thousands of Jobs",
+              title: "Hot jobs in your area",
               description:
-                "Filter by location, role type, and salary to find positions that match your goals.",
+                "Browse cleaning, handyman, moving help, and other service work — updated daily.",
             },
             {
-              title: "Apply in One Tap",
+              title: "Apply in one tap",
               description:
-                "Use our mobile app to browse jobs and submit applications on the go.",
+                "Use the Travailleso app to grab gigs and submit applications on the go.",
             },
             {
-              title: "Career Advice",
+              title: "Real work, fair listings",
               description:
-                "Read expert tips on resumes, interviews, and professional development on our blog.",
+                "No fluff job titles. See what the work is, where it is, and what it pays.",
             },
           ].map((item) => (
             <div
               key={item.title}
-              className="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm"
+              className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-900/5"
             >
-              <h2 className="text-xl font-semibold text-zinc-900">{item.title}</h2>
-              <p className="mt-2 leading-relaxed text-zinc-600">{item.description}</p>
+              <h2 className="text-xl font-semibold text-slate-900">{item.title}</h2>
+              <p className="mt-2 leading-relaxed text-slate-600">{item.description}</p>
             </div>
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col gap-4 sm:flex-row">
+        <div className="mt-12 flex flex-col gap-3 sm:flex-row">
           <Link
             href="/jobs"
-            className="rounded-lg bg-lime-600 px-6 py-3 text-center font-semibold text-white hover:bg-lime-700"
+            className="rounded-full bg-green-600 px-6 py-3 text-center font-semibold text-white shadow-sm shadow-green-600/20 hover:bg-green-700"
           >
-            Browse Jobs
+            Browse hot jobs
           </Link>
           <Link
             href="/blog"
-            className="rounded-lg border border-zinc-300 px-6 py-3 text-center font-semibold text-zinc-800 hover:bg-zinc-50"
+            className="rounded-full border border-green-200 bg-white px-6 py-3 text-center font-semibold text-green-800 hover:bg-green-50"
           >
-            Read Career Tips
+            Tips for service workers
           </Link>
         </div>
       </div>

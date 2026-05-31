@@ -1,6 +1,7 @@
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import { fetchBlogPosts } from "@/lib/wagtail";
+import { siteImages } from "@/lib/images";
 
 export default async function BlogPage() {
   const posts = await fetchBlogPosts();
@@ -8,31 +9,33 @@ export default async function BlogPage() {
   return (
     <>
       <PageHero
-        title="Blog"
-        description="Career tips, industry news, and job search advice from our team."
-        image="https://images.unsplash.com/photo-1456513080920-98a5e279d725?w=1920&q=80&auto=format&fit=crop"
+        title="Tips & stories"
+        description="Practical advice for service workers — cleaning, handyman work, and local gigs."
+        image={siteImages.blog}
         imageAlt="Open notebook with study materials"
       />
       <div className="mx-auto max-w-4xl px-6 py-16">
-        <div className="space-y-8">
+        <div className="space-y-4">
           {posts.length === 0 ? (
-            <p className="text-zinc-600">No blog posts yet. Check back soon!</p>
+            <p className="rounded-3xl bg-white p-8 text-center text-slate-600 ring-1 ring-slate-900/5">
+              No blog posts yet. Check back soon!
+            </p>
           ) : (
             posts.map((post) => (
               <article
                 key={post.id}
-                className="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-lime-300 hover:shadow-md"
+                className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-900/5 transition hover:shadow-md hover:ring-green-200"
               >
-                <time className="text-sm font-medium text-zinc-500">{post.date}</time>
-                <h2 className="mt-2 text-xl font-semibold text-zinc-900">
-                  <Link href={`/blog/${post.meta.slug}`} className="hover:text-lime-700">
+                <time className="text-sm font-medium text-slate-500">{post.date}</time>
+                <h2 className="mt-2 text-xl font-semibold text-slate-900">
+                  <Link href={`/blog/${post.meta.slug}`} className="hover:text-green-700">
                     {post.title}
                   </Link>
                 </h2>
-                <p className="mt-2 leading-relaxed text-zinc-600">{post.intro}</p>
+                <p className="mt-2 leading-relaxed text-slate-600">{post.intro}</p>
                 <Link
                   href={`/blog/${post.meta.slug}`}
-                  className="mt-4 inline-block text-sm font-semibold text-lime-700 hover:text-lime-800"
+                  className="mt-4 inline-block text-sm font-semibold text-green-700 hover:text-green-800"
                 >
                   Read more &rarr;
                 </Link>

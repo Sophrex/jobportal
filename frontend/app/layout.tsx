@@ -15,8 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "JobPortal — Find Your Next Opportunity",
-  description: "Connect job seekers with top employers. Browse jobs, read career advice, and grow your career.",
+  title: "Travailleso — Hot Jobs for Hands-On Work",
+  description:
+    "Find handyman, cleaning, maid, and service jobs near you. Hot gigs for real work — no corporate fluff.",
 };
 
 export default function RootLayout({
@@ -26,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`} style={{ colorScheme: "light" }}>
-      <body className="flex min-h-full flex-col bg-white text-zinc-900 antialiased">
+      <body className="flex min-h-full flex-col bg-[#f7faf8] text-slate-900 antialiased">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

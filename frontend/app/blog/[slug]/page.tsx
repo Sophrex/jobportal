@@ -43,12 +43,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
-      <time className="text-sm font-medium text-zinc-500">{post.date}</time>
-      <h1 className="mt-2 text-4xl font-bold text-zinc-900">{post.title}</h1>
-      <p className="mt-4 text-lg leading-relaxed text-zinc-600">{post.intro}</p>
+      <time className="text-sm font-medium text-slate-500">{post.date}</time>
+      <h1 className="mt-2 text-4xl font-bold tracking-tight text-slate-900">{post.title}</h1>
+      <p className="mt-4 text-lg leading-relaxed text-slate-600">{post.intro}</p>
       {bodyHtml && (
         <div
-          className="prose prose-zinc mt-8 max-w-none"
+          className="prose prose-slate mt-8 max-w-none prose-headings:text-slate-900 prose-a:text-green-700"
           dangerouslySetInnerHTML={{ __html: bodyHtml }}
         />
       )}
