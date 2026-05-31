@@ -1,4 +1,4 @@
-import { List, useTable } from "@refinedev/antd";
+import { List, useTable, EditButton } from "@refinedev/antd";
 import { Table, Tag } from "antd";
 
 interface JobRecord {
@@ -27,6 +27,12 @@ export function JobList() {
           title="Status"
           render={(value: string) => (
             <Tag color={value === "published" ? "green" : "default"}>{value}</Tag>
+          )}
+        />
+        <Table.Column
+          title="Actions"
+          render={(_, record: JobRecord) => (
+            <EditButton recordItemId={record.id} />
           )}
         />
       </Table>

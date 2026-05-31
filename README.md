@@ -74,7 +74,7 @@ cp .env.example .env
 npm run dev
 ```
 
-Open http://localhost:5173 and sign in with `admin` / `admin123`.
+Open http://localhost:5173 and sign in with `admin@example.com` / `admin123`.
 
 ### 5. Mobile (Expo)
 

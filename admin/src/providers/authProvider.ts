@@ -22,11 +22,18 @@ const getStoredUser = (): AuthUser | null => {
 };
 
 export const authProvider: AuthProvider = {
-  login: async ({ username, password }) => {
+  login: async ({ username, email, password }) => {
+    const payload: Record<string, string> = { password };
+    if (email) {
+      payload.email = email;
+    } else if (username) {
+      payload.username = username;
+    }
+
     const response = await fetch(`${API_URL}/api/v1/auth/login/`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify(payload),
     });
 
     if (!response.ok) {

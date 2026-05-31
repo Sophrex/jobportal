@@ -32,12 +32,17 @@ class LoginView(generics.GenericAPIView):
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        username = serializer.validated_data["username"]
+        username = serializer.validated_data.get("username")
+        email = serializer.validated_data.get("email")
         password = serializer.validated_data["password"]
 
-        try:
-            user = User.objects.get(username=username)
-        except User.DoesNotExist:
+        user = None
+        if username:
+            user = User.objects.filter(username=username).first()
+        if not user and email:
+            user = User.objects.filter(email=email).first()
+
+        if not user:
             return Response(
                 {"detail": "Invalid credentials."},
                 status=status.HTTP_401_UNAUTHORIZED,
